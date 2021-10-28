@@ -1,0 +1,23 @@
+.main{
+    font-family: 'Open Sans', sans-serif;
+}
+/*flexible layout
+how flex items are placed in the flex container*/
+.flex{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+th{
+    font-weight: bold;
+    
+}
+.green{
+    background-color: aquamarine;
+}
+.padding{
+    padding: 20px;
+}
+.margin{
+    margin: 20px;
+}
