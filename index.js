@@ -2,41 +2,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        console.log(event)
-        handleSubmit(event)
+        fetchFacilities()
+        //console.log(event)
+        handleSubmit()
     })
     
 })
-function handleSubmit(event){
-    const arrayOfInputs = document.getElementsByTagName('input')
-    console.log(arrayOfInputs)
-    for(let i = 0; i < arrayOfInputs.length - 2; i++){
-        console.log(`${arrayOfInputs[i].name}:` + arrayOfInputs[i].checked)
+function handleSubmit(){
+    // const arrayOfAllInputs = document.getElementsByTagName('input')
+    /*
+    let arrayOfCheckedInputs = []
+    for(let i = 0; i < arrayOfAllInputs.length - 3; i++){
+        if(arrayOfAllInputs[i].checked === true){
+            arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+        }
+        //console.log(`${arrayOfAllInputs[i].value}:` + arrayOfAllInputs[i].checked)
+    }
+    */
+    //fetchFacilities(arrayOfCheckedInputs);
+}
+
+
+function fetchFacilities() {
+    fetch("http://localhost:3000/RECDATA")
+        .then(res => res.json())
+        .then((facilitiesArray => {
+            const arrayOfAllInputs = document.getElementsByTagName('input')
+            let arrayOfCheckedInputs = []
+            for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
+                if (arrayOfAllInputs[i].checked === true) {
+                    arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+                }
+            }
+            console.log(arrayOfCheckedInputs)
+
+            for (let i = 0; i < facilitiesArray.length; i++) {
+                check(facilitiesArray[i], arrayOfCheckedInputs);
+            }
+        })
+    )
+}
+
+function check(facilityObj, arrayOfCheckedInputs) {
+    for(let i = 0; i < arrayOfCheckedInputs.length; i++){
+        if(facilityObj.FacilityTypeDescription === arrayOfCheckedInputs[i]){
+            renderFacility(facilityObj)}
     }
 }
-fetchFacilities();
 
-function fetchFacilities(){
-    fetch("http://localhost:3000/RECDATA")
-    .then(res => res.json())
-    .then(facilitiesArray => facilitiesArray.forEach(facilityObj => {
-        renderFacility(facilityObj)}))
-}
-let count = 0;
 function renderFacility(facilityObj){
-   
-    if(facilityObj.FacilityTypeDescription === "Tree Permit"){
-        
         const tableBody = document.getElementById("table-body")
-        let tableRow = document.createElement("tr");
-        tableRow.innerHTML = `
+        let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+        tableRow.innerHTML = `  
             <td>${facilityObj.FacilityName}</td>
             <td>${facilityObj.FacilityPhone}</td>
             <td>Like</td>
     `
-        tableBody.appendChild(tableRow)
-        
-    }
+        tableBody.appendChild(tableRow)  
 }
 function handleClearAllButton(){
 
