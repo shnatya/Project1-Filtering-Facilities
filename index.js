@@ -1,4 +1,19 @@
-
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('#activity-form')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        console.log(event)
+        handleSubmit(event)
+    })
+    
+})
+function handleSubmit(event){
+    const arrayOfInputs = document.getElementsByTagName('input')
+    console.log(arrayOfInputs)
+    for(let i = 0; i < arrayOfInputs.length - 2; i++){
+        console.log(`${arrayOfInputs[i].name}:` + arrayOfInputs[i].checked)
+    }
+}
 fetchFacilities();
 
 function fetchFacilities(){
@@ -10,7 +25,7 @@ function fetchFacilities(){
 let count = 0;
 function renderFacility(facilityObj){
    
-    if(facilityObj.FacilityTypeDescription === "Timed Entry"){
+    if(facilityObj.FacilityTypeDescription === "Tree Permit"){
         
         const tableBody = document.getElementById("table-body")
         let tableRow = document.createElement("tr");
@@ -22,9 +37,10 @@ function renderFacility(facilityObj){
         tableBody.appendChild(tableRow)
         
     }
-    
 }
+function handleClearAllButton(){
 
+}
 // Facility type:
 // 0: "Activity Pass"
 // 1: "Archives"

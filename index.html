@@ -4,10 +4,38 @@
         <link rel = 'stylesheet' href = 'style.css'/>
     </head>
     <body>
-        <script src="index.js"></script>
+        <script src="./index.js"></script>
 
-        <div class = 'flex margin'>
+        <div class = 'flex'>
             <h1>Nationwide Activities</h1>
+
+            <div class = "flex">
+                <h2>Choose Types of Activities</h2>
+                <form id = 'activity-form' class ='border border-round padding'>
+                    <input type = 'checkbox' id = 'Library' name = 'Library' value = ''/>
+                    <label for = 'Library'>Library</label>
+
+                    <input type = 'checkbox' id = 'Museum' name = 'Museum' value = ''/>
+                    <label for = 'Museum'>Museum</label>
+
+                    <input type = 'checkbox' id = 'Visitor' name = 'Visitor Centor' value = ''/>
+                    <label for = 'Visitor'>Visitor Center</label>
+
+                    <input type = 'checkbox' id = 'Fish' name = 'National Fish Hatchery' value = ''/>
+                    <label for = 'Fish'>Fish Hatchery</label>
+
+                    <input type = 'checkbox' id = 'Tree' name = 'Tree Permit' value = ''/>
+                    <label for = 'Fish'>U-cut Christmas Tree</label>
+
+                    <input type = 'checkbox' id = 'All' name = 'Select All' value = ''/>
+                    <label for = 'All'>Select All</label>
+                    
+                    <input type = 'button' id = 'Clear' name = 'Clear All' value = 'Clear All'/>
+                    <input type = 'submit' value = 'Submit'>
+                    
+                </form>
+            </div>
+
             <div class = 'flex margin'>
                 <h2>Result of the search</h2>
                 <table>
@@ -22,6 +50,7 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
     </body>
 </html>
