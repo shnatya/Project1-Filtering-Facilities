@@ -21,25 +21,25 @@ function fetchFacilities() {
 function proccessData(facilitiesArray){
     const arrayOfCheckedInputs = readCheckBoxes()
 
-    for (let i = 0; i < facilitiesArray.length; i++) {      //instead of forEach?
-        sortFacility(facilitiesArray[i], arrayOfCheckedInputs);
-    }
+    facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedInputs))
 }
 function readCheckBoxes(){
     const arrayOfAllInputs = document.getElementsByTagName('input')
     let arrayOfCheckedInputs = []
     for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {  //how to get elemet Checkbox by type?
-        if (arrayOfAllInputs[i].checked === true) {
+        if(arrayOfAllInputs[i].checked === true) {
             arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
         }
     }
     return arrayOfCheckedInputs
 }
 function sortFacility(facilityObj, arrayOfCheckedInputs) {
-    for(let i = 0; i < arrayOfCheckedInputs.length; i++){
-        if(facilityObj.FacilityTypeDescription === arrayOfCheckedInputs[i]){
-            renderFacility(facilityObj)}
-    }
+    arrayOfCheckedInputs.forEach(checkedInputs => {
+                                        if(facilityObj.FacilityTypeDescription === checkedInputs){
+                                             console.log(facilityObj)
+                                             renderFacility(facilityObj)}
+                                         }
+                                )
 }
 function renderFacility(facilityObj){
     const tableBody = document.getElementById("table-body")
@@ -133,3 +133,19 @@ function handleButtonClearAll(){
 //<h4>${areaObj.ParentOrgID}</h4> <h2>${areaObj.RecAreaName}</h2>
 //<p>${areaObj.RecAreaDescription}</p> <h4>${areaObj.FacilityTypeDescription}</h4>
 //<h4>${areaObj.Reservable}</h4> <h4>${areaObj.FacilityDescription}</h4>
+
+// function proccessData(facilitiesArray){
+//     const arrayOfCheckedInputs = readCheckBoxes()
+
+//     for(let i = 0; i < facilitiesArray.length; i++) {      //instead of forEach?
+//         sortFacility(facilitiesArray[i], arrayOfCheckedInputs);
+//     }
+// }
+
+// function sortFacility(facilityObj, arrayOfCheckedInputs) {
+//     for(let i = 0; i < arrayOfCheckedInputs.length; i++){
+//         if(facilityObj.FacilityTypeDescription === arrayOfCheckedInputs[i]){
+//             console.log(facilityObj)
+//             renderFacility(facilityObj)}
+//     }
+// }
