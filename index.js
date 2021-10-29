@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonClearAll = document.querySelector('#Clear')
     buttonClearAll.addEventListener('click', () => handleClearAll())
 
-    const buttonSelectAll =document.querySelector("#Select All")
-    //buttonSelectAll.addEventListener('click', () => handleSelectAll())
+    const buttonSelectAll =document.querySelector("#Select-All")
+    buttonSelectAll.addEventListener('click', () => handleSelectAll())
 })
 function clearTable(){
     const tableBody = document.getElementById('table-body')
@@ -37,7 +37,7 @@ function readCheckBoxes(){
 function sortFacility(facilityObj, arrayOfCheckedBoxes) {
     arrayOfCheckedBoxes.forEach(checkBox => {
                                         if(facilityObj.FacilityTypeDescription === checkBox){
-                                             console.log(facilityObj)
+                                             //console.log(facilityObj)
                                              renderFacility(facilityObj)}
                                          }
                                 )
@@ -59,7 +59,10 @@ function handleClearAll(){
     clearTable()
 }
 function handleSelectAll(){
-
+    const NodeListOfAllCheckBoxes = document.querySelectorAll('input[type = "checkbox"]')
+    for(let i = 0; i < NodeListOfAllCheckBoxes.length; i++){
+        NodeListOfAllCheckBoxes[i].checked = true
+    }
 }
 // Facility type:
 // 0: "Activity Pass"
