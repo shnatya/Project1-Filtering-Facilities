@@ -45,7 +45,6 @@ function sortFacility(facilityObj, arrayOfCheckedBoxes) {
 function renderFacility(facilityObj){
     const tableBody = document.getElementById("table-body")
     let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
-    //let buttonLike = document.createElement("button")
 
     tableRow.innerHTML = `  
         <td>${facilityObj.FacilityName}</td>
@@ -54,6 +53,8 @@ function renderFacility(facilityObj){
         <td><button class = "styled cursor" id = ${facilityObj.FacilityID}></button></td>
     `
     tableBody.appendChild(tableRow)  
+    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
+    buttonLike.addEventListener('click', (event) => handleButtonLile(event, facilityObj.FacilityName))
 }
 function handleClearAll(){
     const form = document.querySelector('#activity-form')
