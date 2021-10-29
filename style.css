@@ -35,11 +35,16 @@ th{
     cursor: pointer;
 }
 .styled{
-    background-color: cornsilk;
     border-radius: 5px;
     line-height: 2.5;
     padding: 10px 10px;
     position: relative;
     top: 50%;
     left: 50%;
+}
+.button-corn{
+    background-color: cornsilk;
+}
+.button-pink{
+    background-color:lightsalmon;
 }

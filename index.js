@@ -50,11 +50,15 @@ function renderFacility(facilityObj){
         <td>${facilityObj.FacilityName}</td>
         <td>${facilityObj.FacilityTypeDescription}</td>
         <td>${facilityObj.FacilityPhone}</td>
-        <td><button class = "styled cursor" id = ${facilityObj.FacilityID}></button></td>
+        <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
     `
-    tableBody.appendChild(tableRow)  
+    tableBody.appendChild(tableRow) 
+
     let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
-    buttonLike.addEventListener('click', (event) => handleButtonLile(event, facilityObj.FacilityName))
+    buttonLike.addEventListener('click', (event) => handleButtonLile(event, facilityObj))
+}
+function handleButtonLile(event, facilityObj){
+    event.target.attributes[0].nodeValue = 'button-salmon styled cursor'
 }
 function handleClearAll(){
     const form = document.querySelector('#activity-form')
