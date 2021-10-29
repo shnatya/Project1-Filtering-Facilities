@@ -2,27 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        fetchFacilities()
-        //console.log(event)
         handleSubmit()
-    })
-    
+        fetchFacilities()
+    })  
 })
 function handleSubmit(){
-    // const arrayOfAllInputs = document.getElementsByTagName('input')
-    /*
-    let arrayOfCheckedInputs = []
-    for(let i = 0; i < arrayOfAllInputs.length - 3; i++){
-        if(arrayOfAllInputs[i].checked === true){
-            arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
-        }
-        //console.log(`${arrayOfAllInputs[i].value}:` + arrayOfAllInputs[i].checked)
-    }
-    */
-    //fetchFacilities(arrayOfCheckedInputs);
+    const tableBody = document.getElementById('table-body')
+    tableBody.innerHTML = ' '                       //innerHTML?
 }
-
-
 function fetchFacilities() {
     fetch("http://localhost:3000/RECDATA")
         .then(res => res.json())
@@ -42,19 +29,18 @@ function fetchFacilities() {
         })
     )
 }
-
 function check(facilityObj, arrayOfCheckedInputs) {
     for(let i = 0; i < arrayOfCheckedInputs.length; i++){
         if(facilityObj.FacilityTypeDescription === arrayOfCheckedInputs[i]){
             renderFacility(facilityObj)}
     }
 }
-
 function renderFacility(facilityObj){
         const tableBody = document.getElementById("table-body")
         let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
         tableRow.innerHTML = `  
             <td>${facilityObj.FacilityName}</td>
+            <td>${facilityObj.FacilityTypeDescription}</td>
             <td>${facilityObj.FacilityPhone}</td>
             <td>Like</td>
     `
