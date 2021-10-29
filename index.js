@@ -55,10 +55,17 @@ function renderFacility(facilityObj){
     tableBody.appendChild(tableRow) 
 
     let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
-    buttonLike.addEventListener('click', (event) => handleButtonLile(event, facilityObj))
+    buttonLike.addEventListener('click', (event) => handleButtonLike(event, facilityObj))
 }
-function handleButtonLile(event, facilityObj){
-    event.target.attributes[0].nodeValue = 'button-salmon styled cursor'
+function handleButtonLike(event, facilityObj){
+    
+    if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){
+        event.target.attributes[0].nodeValue = 'button-salmon styled cursor'
+    }else{
+        event.target.attributes[0].nodeValue = 'button-corn styled cursor'
+    }
+    
+    
 }
 function handleClearAll(){
     const form = document.querySelector('#activity-form')
