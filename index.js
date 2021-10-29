@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonClearAll.addEventListener('click', () => handleClearAll())
 
     const buttonSelectAll =document.querySelector("#Select All")
-    buttonSelectAll.addEventListener('click', () => handleSelectAll())
+    //buttonSelectAll.addEventListener('click', () => handleSelectAll())
 })
 function clearTable(){
     const tableBody = document.getElementById('table-body')
@@ -23,22 +23,20 @@ function fetchFacilities() {
     )
 }
 function proccessData(facilitiesArray){
-    const arrayOfCheckedInputs = readCheckBoxes()
-    facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedInputs))
+    const arrayOfCheckedBoxes = readCheckBoxes()
+    facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedBoxes))
 }
 function readCheckBoxes(){
-    const arrayOfAllInputs = document.getElementsByTagName('input')
-    let arrayOfCheckedInputs = []
-    for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {  //how to get elemet Checkbox by type?
-        if(arrayOfAllInputs[i].checked === true) {
-            arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
-        }
+    const NodeListOfCheckedBoxes = document.querySelectorAll('input[type = "checkbox"]:checked')
+    let arrayOfCheckedBoxes = []
+    for(let i = 0; i < NodeListOfCheckedBoxes.length; i++) {  
+        arrayOfCheckedBoxes.push(NodeListOfCheckedBoxes[i].value)
     }
-    return arrayOfCheckedInputs
+     return arrayOfCheckedBoxes
 }
-function sortFacility(facilityObj, arrayOfCheckedInputs) {
-    arrayOfCheckedInputs.forEach(checkedInputs => {
-                                        if(facilityObj.FacilityTypeDescription === checkedInputs){
+function sortFacility(facilityObj, arrayOfCheckedBoxes) {
+    arrayOfCheckedBoxes.forEach(checkBox => {
+                                        if(facilityObj.FacilityTypeDescription === checkBox){
                                              console.log(facilityObj)
                                              renderFacility(facilityObj)}
                                          }
@@ -61,7 +59,7 @@ function handleClearAll(){
     clearTable()
 }
 function handleSelectAll(){
-    
+
 }
 // Facility type:
 // 0: "Activity Pass"
@@ -153,4 +151,25 @@ function handleSelectAll(){
 //             console.log(facilityObj)
 //             renderFacility(facilityObj)}
 //     }
+// }
+// function readCheckBoxes(){
+//     const arrayOfAllInputs = document.querySelectorAll('input[type = "checkbox"]:checked')
+//     console.log(arrayOfAllInputs)
+//     // let arrayOfCheckedInputs = []
+//     // for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {  //how to get elemet Checkbox by type?
+//     //     if(arrayOfAllInputs[i].checked === true) {
+//     //         arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+//     //     }
+//     // }
+//      return arrayOfCheckedInputs
+// }
+// function readCheckBoxes(){
+//     const arrayOfAllInputs = document.getElementsByTagName('input')
+//     let arrayOfCheckedInputs = []
+//     for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {  //how to get elemet Checkbox by type?
+//         if(arrayOfAllInputs[i].checked === true) {
+//             arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+//         }
+//     }
+//     return arrayOfCheckedInputs
 // }
