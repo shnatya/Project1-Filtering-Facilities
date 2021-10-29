@@ -5,8 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTable()
         fetchFacilities()
     })  
+
     const buttonClearAll = document.querySelector('#Clear')
-    buttonClearAll.addEventListener('click', (event) => handleButtonClearAll(event))
+    buttonClearAll.addEventListener('click', () => handleClearAll())
+
+    const buttonSelectAll =document.querySelector("#Select All")
+    buttonSelectAll.addEventListener('click', () => handleSelectAll())
 })
 function clearTable(){
     const tableBody = document.getElementById('table-body')
@@ -20,7 +24,6 @@ function fetchFacilities() {
 }
 function proccessData(facilitiesArray){
     const arrayOfCheckedInputs = readCheckBoxes()
-
     facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedInputs))
 }
 function readCheckBoxes(){
@@ -52,12 +55,14 @@ function renderFacility(facilityObj){
     `
     tableBody.appendChild(tableRow)  
 }
-function handleButtonClearAll(){
+function handleClearAll(){
     const form = document.querySelector('#activity-form')
     form.reset() 
     clearTable()
 }
-
+function handleSelectAll(){
+    
+}
 // Facility type:
 // 0: "Activity Pass"
 // 1: "Archives"
