@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        handleSubmit()
+        clearTable()
         fetchFacilities()
     })  
-    
+    const buttonClearAll = document.querySelector('#Clear')
+    buttonClearAll.addEventListener('click', (event) => handleButtonClearAll(event))
 })
-function handleSubmit(){
+function clearTable(){
     const tableBody = document.getElementById('table-body')
     tableBody.innerHTML = ' '                       //innerHTML?
 }
@@ -50,6 +51,11 @@ function renderFacility(facilityObj){
         <td>Like</td>
     `
     tableBody.appendChild(tableRow)  
+}
+function handleButtonClearAll(){
+    const form = document.querySelector('#activity-form')
+    form.reset() 
+    clearTable()
 }
 
 // Facility type:
