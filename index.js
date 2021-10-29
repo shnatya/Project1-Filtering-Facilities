@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         handleSubmit()
         fetchFacilities()
     })  
+    
 })
 function handleSubmit(){
     const tableBody = document.getElementById('table-body')
@@ -13,42 +14,44 @@ function handleSubmit(){
 function fetchFacilities() {
     fetch("http://localhost:3000/RECDATA")
         .then(res => res.json())
-        .then((facilitiesArray => {
-            const arrayOfAllInputs = document.getElementsByTagName('input')
-            let arrayOfCheckedInputs = []
-            for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
-                if (arrayOfAllInputs[i].checked === true) {
-                    arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
-                }
-            }
-            console.log(arrayOfCheckedInputs)
-
-            for (let i = 0; i < facilitiesArray.length; i++) {
-                check(facilitiesArray[i], arrayOfCheckedInputs);
-            }
-        })
+        .then((facilitiesArray => proccessData(facilitiesArray))
     )
 }
-function check(facilityObj, arrayOfCheckedInputs) {
+function proccessData(facilitiesArray){
+    const arrayOfCheckedInputs = readCheckBoxes()
+
+    for (let i = 0; i < facilitiesArray.length; i++) {      //instead of forEach?
+        sortFacility(facilitiesArray[i], arrayOfCheckedInputs);
+    }
+}
+function readCheckBoxes(){
+    const arrayOfAllInputs = document.getElementsByTagName('input')
+    let arrayOfCheckedInputs = []
+    for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
+        if (arrayOfAllInputs[i].checked === true) {
+            arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+        }
+    }
+    return arrayOfCheckedInputs
+}
+function sortFacility(facilityObj, arrayOfCheckedInputs) {
     for(let i = 0; i < arrayOfCheckedInputs.length; i++){
         if(facilityObj.FacilityTypeDescription === arrayOfCheckedInputs[i]){
             renderFacility(facilityObj)}
     }
 }
 function renderFacility(facilityObj){
-        const tableBody = document.getElementById("table-body")
-        let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
-        tableRow.innerHTML = `  
-            <td>${facilityObj.FacilityName}</td>
-            <td>${facilityObj.FacilityTypeDescription}</td>
-            <td>${facilityObj.FacilityPhone}</td>
-            <td>Like</td>
+    const tableBody = document.getElementById("table-body")
+    let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+    tableRow.innerHTML = `  
+        <td>${facilityObj.FacilityName}</td>
+        <td>${facilityObj.FacilityTypeDescription}</td>
+        <td>${facilityObj.FacilityPhone}</td>
+        <td>Like</td>
     `
-        tableBody.appendChild(tableRow)  
+    tableBody.appendChild(tableRow)  
 }
-function handleClearAllButton(){
 
-}
 // Facility type:
 // 0: "Activity Pass"
 // 1: "Archives"
