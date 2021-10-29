@@ -21,19 +21,30 @@ function fetchFacilities() {
 function proccessData(facilitiesArray){
     const arrayOfCheckedInputs = readCheckBoxes()
 
-    for (let i = 0; i < facilitiesArray.length; i++) {      //instead of forEach?
-        sortFacility(facilitiesArray[i], arrayOfCheckedInputs);
-    }
+    // for (let i = 0; i < facilitiesArray.length; i++) {      //instead of forEach?
+    //     sortFacility(facilitiesArray[i], arrayOfCheckedInputs);
+    // }
 }
+// function readCheckBoxes(){
+//     const arrayOfAllInputs = document.getElementsByTagName('input')
+//     let arrayOfCheckedInputs = []
+//     for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
+//         if (arrayOfAllInputs[i].checked === true) {
+//             arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+//         }
+//     }
+//     return arrayOfCheckedInputs
+// }
 function readCheckBoxes(){
-    const arrayOfAllInputs = document.getElementsByTagName('input')
+    const arrayOfAllInputs = document.querySelectorAll('checkbox')
     let arrayOfCheckedInputs = []
-    for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
-        if (arrayOfAllInputs[i].checked === true) {
-            arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
-        }
-    }
-    return arrayOfCheckedInputs
+    console.log(arrayOfAllInputs)
+    // for(let i = 0; i < arrayOfAllInputs.length - 3; i++) {
+    //     if (arrayOfAllInputs[i].checked === true) {
+    //         arrayOfCheckedInputs.push(arrayOfAllInputs[i].value)
+    //     }
+    // }
+    // return arrayOfCheckedInputs
 }
 function sortFacility(facilityObj, arrayOfCheckedInputs) {
     for(let i = 0; i < arrayOfCheckedInputs.length; i++){
