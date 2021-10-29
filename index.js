@@ -51,7 +51,7 @@ function renderFacility(facilityObj){
         <td>${facilityObj.FacilityName}</td>
         <td>${facilityObj.FacilityTypeDescription}</td>
         <td>${facilityObj.FacilityPhone}</td>
-        <td><button class = "styled" id = ${facilityObj.FacilityID}></button></td>
+        <td><button class = "styled cursor" id = ${facilityObj.FacilityID}></button></td>
     `
     tableBody.appendChild(tableRow)  
 }

@@ -1,8 +1,4 @@
-.styled{
-    background-color: cornsilk;
-    line-height: 2.5;
-    cursor: pointer;
-}
+
 .main{
     font-family: 'Open Sans', sans-serif;
 }
@@ -37,4 +33,13 @@ th{
 }
 .cursor{
     cursor: pointer;
+}
+.styled{
+    background-color: cornsilk;
+    border-radius: 5px;
+    line-height: 2.5;
+    padding: 10px 10px;
+    position: relative;
+    top: 50%;
+    left: 50%;
 }
