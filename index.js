@@ -45,11 +45,13 @@ function sortFacility(facilityObj, arrayOfCheckedBoxes) {
 function renderFacility(facilityObj){
     const tableBody = document.getElementById("table-body")
     let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+    //let buttonLike = document.createElement("button")
+
     tableRow.innerHTML = `  
         <td>${facilityObj.FacilityName}</td>
         <td>${facilityObj.FacilityTypeDescription}</td>
         <td>${facilityObj.FacilityPhone}</td>
-        <td>Like</td>
+        <td><button class = "styled" id = ${facilityObj.FacilityID}></button></td>
     `
     tableBody.appendChild(tableRow)  
 }
