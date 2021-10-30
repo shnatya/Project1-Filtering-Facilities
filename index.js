@@ -16,8 +16,20 @@ function clearTable(){
     const tableBody = document.getElementById('table-body')
     tableBody.innerHTML = ' '                       //innerHTML?
 }
+/*
+
+            'Access-Control-Request-Method': 'GET',
+            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json',
+            'apikey': ''
+*/
 function fetchFacilities() {
-    fetch("http://localhost:3000/RECDATA")
+    fetch("https://ridb.recreation.gov/api/v1/facilities", {
+        method: 'GET',
+        headers: {
+            'Access-Control-Allow-Headers': '*',
+        }
+    })
         .then(res => res.json())
         .then((facilitiesArray => proccessData(facilitiesArray))
     )
