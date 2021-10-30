@@ -57,15 +57,14 @@ function renderFacility(facilityObj){
     let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
     buttonLike.addEventListener('click', (event) => handleButtonLike(event, facilityObj))
 }
+
 function handleButtonLike(event, facilityObj){
-    
+    console.log(facilityObj.FacilityName)
     if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){
         event.target.attributes[0].nodeValue = 'button-salmon styled cursor'
     }else{
         event.target.attributes[0].nodeValue = 'button-corn styled cursor'
     }
-    
-    
 }
 function handleClearAll(){
     const form = document.querySelector('#activity-form')

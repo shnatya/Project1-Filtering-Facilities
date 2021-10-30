@@ -4,10 +4,17 @@
 }
 /*flexible layout
 how flex items are placed in the flex container*/
+/*the children of a flex container can be laid out in any direction, and can “flex” their sizes*/
 .flex{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.right-position{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 380px;
+    right: 30px;
 }
 th{
     font-weight: bold;
@@ -41,6 +48,7 @@ th{
     position: relative;
     top: 50%;
     left: 50%;
+    
 }
 .button-corn{
     background-color: cornsilk;
@@ -48,3 +56,12 @@ th{
 .button-salmon{
     background-color:lightsalmon;
 }
+
+  tbody#table-body tr:hover{
+    background-color:lightsalmon;
+  }
+  .checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+  }

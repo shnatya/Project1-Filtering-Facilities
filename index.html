@@ -6,34 +6,77 @@
     <body>
         <script src="./index.js"></script>
 
+
         <div class = 'flex'>
             <h1>Nationwide Activities</h1>
 
-            <div class = "flex">
+            <section class = "flex">
                 <h2>Choose Types of Activities</h2>
-                <form id = 'activity-form' class ='border border-round padding'>
-                    <input type = 'checkbox' class = 'cursor' id = 'Library' name = 'Library' value = 'Library'/>
-                    <label for = 'Library'>Library</label>
+                <!--<form id = 'activity-form' class ='border border-round padding'>
+                    <ul class = 'checkbox-grid'>
+                        <li><input type = 'checkbox' class = 'cursor' id = 'Library' name = 'Library' value = 'Library'/>
+                        <label for = 'Library'>Library</label></li>
 
-                    <input type = 'checkbox' class = 'cursor' id = 'Museum' name = 'Museum' value = 'Museum'/>
-                    <label for = 'Museum'>Museum</label>
+                        <li><input type = 'checkbox' class = 'cursor' id = 'Museum' name = 'Museum' value = 'Museum'/>
+                        <label for = 'Museum'>Museum</label></li>
 
-                    <input type = 'checkbox' class = 'cursor' id = 'Visitor' name = 'Visitor Center' value = 'Visitor Center'/>
-                    <label for = 'Visitor'>Visitor Center</label>
+                        <li><input type = 'checkbox' class = 'cursor' id = 'Visitor' name = 'Visitor Center' value = 'Visitor Center'/>
+                        <label for = 'Visitor'>Visitor Center</label></li>
 
-                    <input type = 'checkbox' class = 'cursor' id = 'Fish' name = 'Fish Hatchery' value = 'National Fish Hatchery'/>
-                    <label for = 'Fish'>Fish Hatchery</label>
+                        <li><input type = 'checkbox' class = 'cursor' id = 'Fish' name = 'Fish Hatchery' value = 'National Fish Hatchery'/>
+                        <label for = 'Fish'>Fish Hatchery</label></li>
 
-                    <input type = 'checkbox' class = 'cursor' id = 'Tree' name = 'Tree Permit' value = 'Tree Permit'/>
-                    <label for = 'Tree'>U-cut Christmas Tree</label>
+                        <li><input type = 'checkbox' class = 'cursor' id = 'Tree' name = 'Tree Permit' value = 'Tree Permit'/>
+                        <label for = 'Tree'>U-cut Christmas Tree</label></li></ul>
                     
                     <input type = 'button' class = 'cursor' id = 'Select-All' name = 'Select All' value = 'Select All'/>
-                    <input type = 'reset' class = 'cursor' id = 'Clear' name = 'Clear All' value = 'Clear All'/>
                     <input type = 'submit' class = 'cursor' value = 'Submit'>
+                    <input type = 'reset' class = 'cursor' id = 'Clear' name = 'Clear All' value = 'Clear All'/>
                     
+                </form>-->
+                <form id = 'activity-form' class ='border border-round padding'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class = 'padding'>
+                                    <input type = 'checkbox' class = 'cursor' id = 'Library' name = 'Library' value = 'Library'/>
+                                    <label for = 'Library'>Library</label>
+                                </td>
+                                <td class = 'padding'>
+                                    <input type = 'checkbox' class = 'cursor' id = 'Museum' name = 'Museum' value = 'Museum'/>
+                                    <label for = 'Museum'>Museum</label>
+                                </td>
+                                <td class = 'padding'>
+                                    <input type = 'checkbox' class = 'cursor' id = 'Tree' name = 'Tree Permit' value = 'Tree Permit'/>
+                                    <label for = 'Tree'>U-cut Christmas Tree</label>
+                                </td>
+                                <td class = 'padding'>
+                                    <input type = 'checkbox' class = 'cursor' id = 'Visitor' name = 'Visitor Center' value = 'Visitor Center'/>
+                                    <label for = 'Visitor'>Visitor Center</label>
+                                </td>
+                                <td class = 'padding'>
+                                    <input type = 'checkbox' class = 'cursor' id = 'Fish' name = 'Fish Hatchery' value = 'National Fish Hatchery'/>
+                                    <label for = 'Fish'>Fish Hatchery</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type = 'button' class = 'cursor' id = 'Select-All' name = 'Select All' value = 'Select All'/>
+                                    <input type = 'submit' class = 'cursor' value = 'Submit'>
+                                    <input type = 'reset' class = 'cursor' id = 'Clear' name = 'Clear All' value = 'Clear All'/>
                 </form>
-            </div>
-
+            </section>
+           
             <div class = 'flex margin'>
                 <h2>Result of the search</h2>
                 <table>
