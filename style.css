@@ -5,6 +5,9 @@
 /*flexible layout
 how flex items are placed in the flex container*/
 /*the children of a flex container can be laid out in any direction, and can “flex” their sizes*/
+.center{
+    text-align: center;
+}
 .flex{
     display: flex;
     align-items: center;
