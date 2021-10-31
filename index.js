@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         clearTable()
         fetchFacilities()
+        fetchAddresses()
     })  
 
     const buttonClearAll = document.querySelector('#Clear')
@@ -17,7 +18,7 @@ function clearTable(){
     tableBody.innerHTML = ' '                       //innerHTML?
 }
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -27,24 +28,15 @@ function fetchFacilities() {
         .then((data => proccessData(data.RECDATA))
     )
 }
-let arr= ["State", "one more state"]
+function fetchAddresses() {
+    fetch("http://localhost:3000/RECDATA")
+        .then(res => res.json())
+        .then((data => console.log(data))
+    )
+        
+}
+
 function proccessData(facilitiesArray){
-    facilitiesArray.forEach(facilityObj => {
-    mark = 0;
-    for(let i = 0; i < arr.length; i++){
-
-        if(arr[i] === `${facilityObj.FacilityTypeDescription}`){
-    
-            mark = 1;
-            break;
-        } 
-    }
-    if(mark === 0){
-
-        arr.push(`${facilityObj.FacilityTypeDescription}`)
-    }   
-})
-    console.log(arr)
     const arrayOfCheckedBoxes = readCheckBoxes()
     facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedBoxes))
 }
@@ -101,6 +93,15 @@ function handleSelectAll(){
     }
 }
 // Facility type:
+
+
+// "Campground"
+// 3: "Ticket Facility"
+// 4: "Permit"
+// 5: "Facility"
+// 6: "Activity Pass"
+// 7: "Visitor Center"
+
 // 0: "Activity Pass"
 // 1: "Archives"
 // ? 2: "Campground"?
@@ -118,6 +119,8 @@ function handleSelectAll(){
 // +14: "Timed Entry" put like ticket+
 // +15: "Tree Permit"+
 // +16: "Visitor Center"+
+
+
 
 // function fetchAreas(){
 //     fetch("http://localhost:4000/RECDATA")
