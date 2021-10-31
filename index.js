@@ -1,10 +1,10 @@
+let arrayOfFacilityID = []
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
         clearTable()
         fetchFacilities()
-        fetchAddresses()
     })  
 
     const buttonClearAll = document.querySelector('#Clear')
@@ -28,14 +28,6 @@ function fetchFacilities() {
         .then((data => proccessData(data.RECDATA))
     )
 }
-function fetchAddresses() {
-    fetch("http://localhost:3000/RECDATA")
-        .then(res => res.json())
-        .then((data => console.log(data))
-    )
-        
-}
-
 function proccessData(facilitiesArray){
     const arrayOfCheckedBoxes = readCheckBoxes()
     facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedBoxes))
@@ -52,10 +44,9 @@ function sortFacility(facilityObj, arrayOfCheckedBoxes) {
     
     arrayOfCheckedBoxes.forEach(checkBox => {
                                         if(facilityObj.FacilityTypeDescription === checkBox){
-                                             console.log(facilityObj)
-                                             renderFacility(facilityObj)}
+                                            renderFacility(facilityObj)}
                                          }
-                                )
+                               )    
 }
 function renderFacility(facilityObj){
     const tableBody = document.getElementById("table-body")
