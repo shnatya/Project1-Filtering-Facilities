@@ -27,7 +27,24 @@ function fetchFacilities() {
         .then((data => proccessData(data.RECDATA))
     )
 }
+let arr= ["State", "one more state"]
 function proccessData(facilitiesArray){
+    facilitiesArray.forEach(facilityObj => {
+    mark = 0;
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] === `${facilityObj.FacilityTypeDescription}`){
+    
+            mark = 1;
+            break;
+        } 
+    }
+    if(mark === 0){
+
+        arr.push(`${facilityObj.FacilityTypeDescription}`)
+    }   
+})
+    console.log(arr)
     const arrayOfCheckedBoxes = readCheckBoxes()
     facilitiesArray.forEach(facilityObj => sortFacility(facilityObj, arrayOfCheckedBoxes))
 }
