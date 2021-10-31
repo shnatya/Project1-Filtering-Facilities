@@ -16,22 +16,15 @@ function clearTable(){
     const tableBody = document.getElementById('table-body')
     tableBody.innerHTML = ' '                       //innerHTML?
 }
-/*
-
-            'Access-Control-Request-Method': 'GET',
-            'Access-Control-Allow-Origin': '*',
-            'Accept': 'application/json',
-            'apikey': ''
-*/
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities", {
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
         method: 'GET',
         headers: {
-            'Access-Control-Allow-Headers': '*',
+            'Accept': 'application/json',
         }
     })
         .then(res => res.json())
-        .then((facilitiesArray => proccessData(facilitiesArray))
+        .then((data => proccessData(data.RECDATA))
     )
 }
 function proccessData(facilitiesArray){
@@ -47,9 +40,10 @@ function readCheckBoxes(){
      return arrayOfCheckedBoxes
 }
 function sortFacility(facilityObj, arrayOfCheckedBoxes) {
+    
     arrayOfCheckedBoxes.forEach(checkBox => {
                                         if(facilityObj.FacilityTypeDescription === checkBox){
-                                             //console.log(facilityObj)
+                                             console.log(facilityObj)
                                              renderFacility(facilityObj)}
                                          }
                                 )
