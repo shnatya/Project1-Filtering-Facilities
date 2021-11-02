@@ -1,4 +1,4 @@
-//when Submit pushed, clear the table and send fetch request 
+//when Submit pushed, clear the table and send fetch request  ????What to write in README?
 //listen for buttons Clear All and Select All
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
@@ -43,7 +43,7 @@ function readCheckBoxes(){
     for(let i = 0; i < NodeListOfCheckedBoxes.length; i++) {  
         arrayOfCheckedBoxes.push(NodeListOfCheckedBoxes[i].value)
     }
-     return arrayOfCheckedBoxes
+    return arrayOfCheckedBoxes
 }
 //according to array of checked checkboxes function chooses what facility should be rendered
 function sortFacility(facilityObj, arrayOfCheckedBoxes) {
@@ -73,8 +73,8 @@ function renderFacility(facilityObj){
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
-    if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){
-        event.target.attributes[0].nodeValue = 'button-salmon styled cursor'
+    if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){  ///we don't have a closure here, right?
+        event.target.attributes[0].nodeValue = 'button-salmon styled cursor'  // we have a lexical scope
     }else{
         event.target.attributes[0].nodeValue = 'button-corn styled cursor'
     }

@@ -60,11 +60,6 @@ th{
     background-color:lightsalmon;
 }
 
-  tbody#table-body tr:hover{
+tbody#table-body tr:hover{
     background-color:lightsalmon;
-  }
-  .checkbox-grid li {
-    display: block;
-    float: left;
-    width: 25%;
   }
