@@ -67,20 +67,24 @@ function renderFacility(facilityObj){
         <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
     `
     tableBody.appendChild(tableRow) 
+    tableRow.id = `${facilityObj.FacilityName}`
 
-    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
+   let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
+
+    let showDescription = document.getElementById(`${facilityObj.FacilityName}`)
+    console.log(showDescription)
     
-    tableRow = document.createElement("tr");
+    /*tableRow = document.createElement("tr");
     tableRow.innerHTML = `  
         <td colspan = '4'>${facilityObj.FacilityDescription}</td>
     `
-    tableBody.appendChild(tableRow) 
+    tableBody.appendChild(tableRow) */
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
-    if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){  ///we don't have a closure here, right?
-        event.target.attributes[0].nodeValue = 'button-salmon styled cursor'  // we have a lexical scope
+    if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){  ///???we don't have a closure here, right?
+        event.target.attributes[0].nodeValue = 'button-salmon styled cursor'  // ???we have a lexical scope
     }else{
         event.target.attributes[0].nodeValue = 'button-corn styled cursor'
     }
