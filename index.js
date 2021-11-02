@@ -21,7 +21,7 @@ function clearTable(){
 }
 //function sends request to API to get data of Facilities
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=", {
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -70,6 +70,12 @@ function renderFacility(facilityObj){
 
     let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
+    
+    tableRow = document.createElement("tr");
+    tableRow.innerHTML = `  
+        <td colspan = '4'>${facilityObj.FacilityDescription}</td>
+    `
+    tableBody.appendChild(tableRow) 
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
