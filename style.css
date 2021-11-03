@@ -13,12 +13,6 @@ how flex items are placed in the flex container*/
     align-items: center;
     flex-direction: column;
 }
-.right-position{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 380px;
-    right: 30px;
-}
 th{
     font-weight: bold;
     

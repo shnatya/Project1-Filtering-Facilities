@@ -77,19 +77,6 @@ function renderFacility(facilityObj){
     buttonLike.id = `${facilityObj.FacilityID}`
     newCell.appendChild(buttonLike)
     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
-
-    //let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
-    // tableRow.innerHTML = `  
-    //     <td>${facilityObj.FacilityName}</td>
-    //     <td>${facilityObj.FacilityTypeDescription}</td>
-    //     <td>${facilityObj.FacilityPhone}</td>
-    //     <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
-    // `
-    //tableBody.appendChild(tableRow) 
-  
-
-//    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
-//     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
@@ -123,3 +110,17 @@ function handleSelectAll(){
         <td colspan = '4'>${facilityObj.FacilityDescription}</td>
     `
     tableBody.appendChild(tableRow) */
+
+    //rendering facility using innetHTML
+    //let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+    // tableRow.innerHTML = `  
+    //     <td>${facilityObj.FacilityName}</td>
+    //     <td>${facilityObj.FacilityTypeDescription}</td>
+    //     <td>${facilityObj.FacilityPhone}</td>
+    //     <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
+    // `
+    //tableBody.appendChild(tableRow) 
+  
+
+//    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
+//     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
