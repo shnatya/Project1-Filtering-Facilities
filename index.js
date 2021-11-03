@@ -58,19 +58,33 @@ function sortFacility(facilityObj, arrayOfCheckedBoxes) {
 //listen for a Like button to be pressed
 function renderFacility(facilityObj){
     const tableBody = document.getElementById("table-body")
-    let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+    let newRow = tableBody.insertRow(-1)
+    let newCell = newRow.insertCell(0)
+    let newText = document.createTextNode(`${facilityObj.FacilityName}`)
+    newCell.appendChild(newText)
 
-    tableRow.innerHTML = `  
-        <td>${facilityObj.FacilityName}</td>
-        <td>${facilityObj.FacilityTypeDescription}</td>
-        <td>${facilityObj.FacilityPhone}</td>
-        <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
-    `
-    tableBody.appendChild(tableRow) 
+    newCell = newRow.insertCell(1)
+    newText = document.createTextNode(`${facilityObj.FacilityTypeDescription}`)
+    newCell.appendChild(newText)
+
+    newCell = newRow.insertCell(2)
+    newText = document.createTextNode(`${facilityObj.FacilityPhone}`)
+    newCell.appendChild(newText)
+
+    
+
+    //let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
+    // tableRow.innerHTML = `  
+    //     <td>${facilityObj.FacilityName}</td>
+    //     <td>${facilityObj.FacilityTypeDescription}</td>
+    //     <td>${facilityObj.FacilityPhone}</td>
+    //     <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
+    // `
+    //tableBody.appendChild(tableRow) 
   
 
-   let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
-    buttonLike.addEventListener('click', (event) => handleButtonLike(event))
+//    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
+//     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
@@ -93,7 +107,7 @@ function handleSelectAll(){
         NodeListOfAllCheckBoxes[i].checked = true
     }
 }
-
+//work on adding description of facility
 // tableRow.id = `${facilityObj.FacilityName}`
     /*let facility = document.getElementById(`${facilityObj.FacilityName}`)
     console.log(facility)
