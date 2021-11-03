@@ -71,7 +71,12 @@ function renderFacility(facilityObj){
     newText = document.createTextNode(`${facilityObj.FacilityPhone}`)
     newCell.appendChild(newText)
 
-    
+    newCell = newRow.insertCell(3);
+    let buttonLike = document.createElement('button')
+    buttonLike.className = "button-corn styled cursor"
+    buttonLike.id = `${facilityObj.FacilityID}`
+    newCell.appendChild(buttonLike)
+    buttonLike.addEventListener('click', (event) => handleButtonLike(event))
 
     //let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
     // tableRow.innerHTML = `  
@@ -88,6 +93,7 @@ function renderFacility(facilityObj){
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
+    console.log(event)
     if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){  
         event.target.attributes[0].nodeValue = 'button-salmon styled cursor'  
     }else{
