@@ -21,7 +21,7 @@ function clearTable(){
 }
 //function sends request to API to get data of Facilities
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -100,27 +100,3 @@ function handleSelectAll(){
         NodeListOfAllCheckBoxes[i].checked = true
     }
 }
-//work on adding description of facility
-// tableRow.id = `${facilityObj.FacilityName}`
-    /*let facility = document.getElementById(`${facilityObj.FacilityName}`)
-    console.log(facility)
-    facility.addEventListener('click', (event) => showDescription(event))
-    tableRow = document.createElement("tr");
-    tableRow.innerHTML = `  
-        <td colspan = '4'>${facilityObj.FacilityDescription}</td>
-    `
-    tableBody.appendChild(tableRow) */
-
-    //rendering facility using innetHTML
-    //let tableRow = document.createElement("tr"); //is it ok to use innerHTML?
-    // tableRow.innerHTML = `  
-    //     <td>${facilityObj.FacilityName}</td>
-    //     <td>${facilityObj.FacilityTypeDescription}</td>
-    //     <td>${facilityObj.FacilityPhone}</td>
-    //     <td><button class = "button-corn styled cursor" id = ${facilityObj.FacilityID}></button></td>
-    // `
-    //tableBody.appendChild(tableRow) 
-  
-
-//    let buttonLike = document.getElementById(`${facilityObj.FacilityID}`)
-//     buttonLike.addEventListener('click', (event) => handleButtonLike(event))
