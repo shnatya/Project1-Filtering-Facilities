@@ -1,4 +1,10 @@
-//when Submit pushed, clear the table and send fetch request  ????What to write in README?
+if (undefinedVar === undefined) {
+    console.log("yay")
+}
+
+var undefinedVar = 4;
+
+//when Submit pushed, clear the table and send fetch request  
 //listen for buttons Clear All and Select All
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#activity-form')
@@ -21,7 +27,7 @@ function clearTable(){
 }
 //function sends request to API to get data of Facilities
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=", {
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -100,3 +106,7 @@ function handleSelectAll(){
         NodeListOfAllCheckBoxes[i].checked = true
     }
 }
+
+
+
+
