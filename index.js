@@ -1,8 +1,3 @@
-if (undefinedVar === undefined) {
-    console.log("yay")
-}
-
-var undefinedVar = 4;
 
 //when Submit pushed, clear the table and send fetch request  
 //listen for buttons Clear All and Select All
@@ -27,12 +22,7 @@ function clearTable(){
 }
 //function sends request to API to get data of Facilities
 function fetchFacilities() {
-    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7", {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-        }
-    })
+    fetch("https://ridb.recreation.gov/api/v1/facilities?apikey=9a06bc0e-182c-4cb0-8cff-0d5e2a8504a7")
         .then(res => res.json())
         .then((data => proccessData(data.RECDATA))
     )
@@ -86,7 +76,6 @@ function renderFacility(facilityObj){
 }
 //function changes color of Like button (from corn to salmon or from salmon to corn color)
 function handleButtonLike(event){
-    console.log(event)
     if(event.target.attributes[0].nodeValue === 'button-corn styled cursor'){  
         event.target.attributes[0].nodeValue = 'button-salmon styled cursor'  
     }else{
